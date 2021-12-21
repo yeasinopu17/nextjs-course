@@ -18,8 +18,17 @@ const DUMMY_MEETUPS = [
     },
 ];
 
-function Homepage() {
-    return <MeetupList meetups={DUMMY_MEETUPS} />;
+function Homepage(props) {
+    return <MeetupList meetups={props.meetups} />;
+}
+
+export async function getStaticProps() {
+    return {
+        props: {
+            meetups: DUMMY_MEETUPS,
+        },
+        revalidate: 600
+    };
 }
 
 export default Homepage;
