@@ -1,9 +1,19 @@
 //home
 import MeetupList from '../components/meetups/MeetupList';
 import { MongoClient } from 'mongodb';
+import Head from 'next/head';
+import React from 'react';
 
 function Homepage(props) {
-    return <MeetupList meetups={props.meetups} />;
+    return (
+        <>
+            <Head>
+                <title>React Meetups</title>
+                <meta name="description" content="This is demo meetups app with react and next js" />
+            </Head>
+            <MeetupList meetups={props.meetups} />
+        </>
+    );
 }
 
 // export async function getServerSideProps(context) {
